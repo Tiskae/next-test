@@ -1,0 +1,14 @@
+{
+  "lambo": {
+    "name": "lambo",
+    "url": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Aventador/6721/Lamborghini-Aventador-SVJ/1621849426405/front-left-side-47.jpg"
+  },
+  "ferrari": {
+    "name": "Ferrari",
+    "url": "https://www.supercars.net/blog/wp-content/uploads/2022/02/Ferrari-SF90-Stradale-1.jpg"
+  },
+  "tesla": {
+    "name": "Tesla",
+    "url": "https://cdn.motor1.com/images/mgl/Yp07j/s1/tesla-pricing-lead.jpg"
+  }
+}
