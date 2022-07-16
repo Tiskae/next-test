@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Layout from "../../components/layout";
 
 export default function ({ cars }) {
   const router = useRouter();
@@ -6,14 +8,19 @@ export default function ({ cars }) {
   const car = cars[id] || "No car";
 
   return (
-    <div>
-      <img
-        src={car.url}
-        alt={car.name}
-        style={{ height: 400, objectFit: "cover" }}
-      />
-      <h1>Hello {car.name}</h1>
-    </div>
+    <Layout>
+      <div style={{ marginTop: 10, textAlign: "center" }}>
+        <img
+          src={car.url}
+          alt={car.name}
+          style={{ width: "100%", objectFit: "cover" }}
+        />
+        <h1>Hello {car.name}</h1>
+        <Link href="/">
+          <a>Back to home</a>
+        </Link>
+      </div>
+    </Layout>
   );
 }
 
