@@ -2,10 +2,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Layout from "../../components/layout";
 
-export default function ({ cars }) {
+export default function ({ car }) {
   const router = useRouter();
   const { id } = router.query;
-  const car = cars[id] || "No car";
 
   return (
     <Layout>
@@ -24,13 +23,12 @@ export default function ({ cars }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
+  const id = params.id;
   const data = await fetch("http://localhost:3000/data/cars.json");
   const cars = await data.json();
-  //   console.log(cars);
-
   return {
-    props: { cars: cars },
+    props: { car: cars[id] },
   };
 }
 
@@ -38,7 +36,8 @@ export async function getStaticPaths() {
   const data = await fetch("http://localhost:3000/data/cars.json");
   const cars = await data.json();
   return {
-    paths: Object.keys(cars).map((name) => `/cars/${name}`),
+    // paths: Object.keys(cars).map((name) => `/cars/${name}`),
+    paths: Object.keys(cars).map((name) => ({ params: { id: name } })),
     fallback: false,
   };
 }
