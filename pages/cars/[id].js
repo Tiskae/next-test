@@ -4,8 +4,6 @@ import Layout from "../../components/layout";
 
 export default function ({ car }) {
   const router = useRouter();
-  const { id } = router.query;
-
   return (
     <Layout>
       <div style={{ marginTop: 10, textAlign: "center" }}>
